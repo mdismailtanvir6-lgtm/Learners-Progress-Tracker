@@ -1,13 +1,16 @@
 {
-  "name": "my-project",
+  "name": "student-task-progress-tracker",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "description": "A SaaS-inspired productivity app for managing tasks, tracking study time, setting goals, and analyzing progress.",
+  "author": "Ismail Hossain",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
@@ -30,3 +33,4 @@
     "vite": "npm:rolldown-vite@7.2.2"
   }
 }
+

@@ -1,16 +1,79 @@
-# React + Vite
+# Student Task & Progress Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A scalable, SaaS-inspired productivity application designed for students and self-learners to manage tasks, track study time, set learning goals, and analyze progress.
 
-Currently, two official plugins are available:
+This project focuses on **real-world software engineering practices**, emphasizing clean architecture, logic-first development, and maintainability over template-based UI development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Authentication & User System
+- Secure user registration and login
+- Protected routes and session handling
+- User-specific data isolation
 
-## Expanding the ESLint configuration
+### Task Management
+- Create, update, and delete tasks
+- Task status tracking (pending / completed)
+- Deadline-based task organization
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Time Tracking
+- Start and stop study sessions per task
+- Automatic calculation of total study time
+- Daily and task-wise time summaries
+
+### Goal System
+- Weekly and monthly goal setting
+- Goal progress comparison (target vs actual)
+- Goal completion indicators
+
+### Progress & Analytics
+- Task completion statistics
+- Study time analytics
+- Weekly progress summaries
+- Derived metrics for performance tracking
+
+### Notification System
+- In-app notifications
+- Task deadline reminders
+- Goal progress alerts
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend**
+- React
+- React Router
+- Context API
+- Custom Hooks
+
+**State & Logic**
+- Feature-based state management
+- Reusable service layers
+- Utility-driven calculations
+
+**Styling**
+- CSS / Tailwind CSS (incremental enhancement)
+
+**Backend (Planned)**
+- Firebase or REST API
+- Secure authentication
+- Cloud-hosted database
+
+---
+
+## 📁 Project Structure
+
+src/
+├── pages/ # Route-level components
+├── components/ # Reusable UI components
+├── context/ # Global state providers
+├── hooks/ # Custom React hooks
+├── services/ # API and business logic
+├── utils/ # Helper and calculation utilities
+├── constants/ # Application constants
+├── styles/ # Global styles
+├── App.jsx
+└── main.jsx
