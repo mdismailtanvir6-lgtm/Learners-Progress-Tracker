@@ -3,6 +3,7 @@ import "./App.css";
 import { auth } from "./firebase/config";
 import { observeAuthState } from "./services/authService";
 import { useEffect } from "react";
+import { useAuth } from "./context/AuthContext";
 
 const App = () => {
   // ========= firebase auth =======
@@ -17,8 +18,18 @@ const App = () => {
     return () => unsubscribe();
   }, []);
 
+  const { user, loading } = useAuth();
+
+  if (loading) return <p>Checking authentication...</p>;
+
   return (
-    <div className="text-[14px] leading-[23px]">Auth service is ready !</div>
+    <div>
+      {user ? (
+        <h2>Welcome, {user.email}</h2>
+      ) : (
+        <h2>User not logged in or email not verified</h2>
+      )}
+    </div>
   );
 };
 
