@@ -9,6 +9,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import useAuthStore from "./stores/authStore";
 import useTaskStore from "./stores/taskStore";
 
+
 const App = () => {
   // ===== auth store =====
   const user = useAuthStore((state) => state.user);
@@ -34,6 +35,8 @@ const App = () => {
       clearTasks();
     }
   }, [user]);
+
+
 
 
   if (authLoading) return <div>Loading...</div>;
