@@ -1,13 +1,42 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
 import Login from "./pages/auth/Login";
 import Dashboard from "./pages/dashboard/DashboardHome";
 import ProtectedRoute from "./routes/ProtectedRoute";
+
+import useAuthStore from "./stores/authStore";
 import useTaskStore from "./stores/taskStore";
 
 const App = () => {
-  const { tasks, loading } = useTaskStore();
-  console.log("Tasks:", tasks);
+  // ===== auth store =====
+  const user = useAuthStore((state) => state.user);
+  const authLoading = useAuthStore((state) => state.loading);
+  const initAuthListener = useAuthStore((state) => state.initAuthListener);
+
+  // ===== task store =====
+  const fetchTasks = useTaskStore((state) => state.fetchTasks);
+  const clearTasks = useTaskStore((state) => state.clearTasks);
+  const tasks = useTaskStore((state) => state.tasks);
+
+  // 🔹 init auth listener once
+  useEffect(() => {
+    const unsubscribe = initAuthListener();
+    return () => unsubscribe();
+  }, []);
+
+  // 🔥 AUTH ↔ TASK BINDING
+  useEffect(() => {
+    if (user) {
+      fetchTasks(user.uid);
+    } else {
+      clearTasks();
+    }
+  }, [user]);
+
+
+  if (authLoading) return <div>Loading...</div>;
 
   return (
     <BrowserRouter>
@@ -28,6 +57,3 @@ const App = () => {
 };
 
 export default App;
-
-
-

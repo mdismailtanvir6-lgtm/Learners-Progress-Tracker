@@ -63,6 +63,10 @@ const useTaskStore = create((set, get) => ({
       set({ error: error.message });
     }
   },
+
+  clearTasks: () => {
+    set({ tasks: [], loading: false, error: null });
+  },
 }));
 
 export default useTaskStore;
