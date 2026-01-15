@@ -23,23 +23,35 @@ const useAuthStore = create((set) => ({
 
   // ================= REGISTER =================
   register: async (email, password) => {
-    set({ error: null });
+    set({ loading: true, error: null });
     try {
       const res = await registerUser(email, password);
-      set({ user: res.user });
+      set({
+        user: res.user,
+        loading: false,
+      });
     } catch (err) {
-      set({ error: err.message });
+      set({
+        error: err.message,
+        loading: false,
+      });
     }
   },
 
   // ================= LOGIN =================
   login: async (email, password) => {
-    set({ error: null });
+    set({ loading: true, error: null });
     try {
       const res = await loginUser(email, password);
-      set({ user: res.user });
+      set({
+        user: res.user,
+        loading: false,
+      });
     } catch (err) {
-      set({ error: err.message });
+      set({
+        error: err.message,
+        loading: false,
+      });
     }
   },
 

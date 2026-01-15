@@ -8,6 +8,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 
 import useAuthStore from "./stores/authStore";
 import useTaskStore from "./stores/taskStore";
+import Register from "./pages/auth/Register";
 
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="/"
